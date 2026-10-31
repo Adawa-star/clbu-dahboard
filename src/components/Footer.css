@@ -1,0 +1,109 @@
+/* Extra color variable so the footer headings also follow night mode */
+:root { --head-text: #f5efe6; }
+body.night { --head-text: #ff8a7c; }
+
+.site-footer {
+  background: var(--darker);
+  border-top: 4px solid var(--accent);   /* copper line on top */
+  margin-top: 40px;
+  padding: 40px 20px 28px;
+  color: var(--nav-text);
+}
+
+/* 2 columns on phones */
+.site-footer-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 30px;
+}
+
+/* 4 columns on tablets and desktops */
+@media (min-width: 700px) {
+  .site-footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  }
+}
+
+.site-footer h3 {
+  margin: 0 0 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--head-text);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer li {
+  margin-bottom: 6px;
+}
+
+.site-footer a {
+  display: inline-block;
+  padding: 3px 0;           /* bigger tap area on phones */
+  color: var(--nav-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.site-footer a:hover {
+  color: var(--head-text);
+}
+
+.site-footer a:focus-visible,
+.site-footer-btn:focus-visible {
+  outline: 2px solid var(--head-text);
+  outline-offset: 2px;
+}
+
+.site-footer-place {
+  font-size: 0.9rem !important;
+  margin-bottom: 12px !important;
+}
+
+/* Outlined copper button */
+.site-footer-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font: 600 0.85rem 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.site-footer-btn:hover {
+  background: var(--accent);
+  color: var(--darkest);
+}
+
+/* Divider line + copyright */
+.site-footer-bottom {
+  max-width: 800px;
+  margin: 36px auto 0 !important;
+  padding-top: 24px;
+  border-top: 1px solid rgba(201, 184, 168, 0.15);
+  text-align: center;
+  font-size: 0.8rem !important;
+  color: #a8978a;
+}
+
+body.night .site-footer-bottom {
+  color: var(--muted);
+}

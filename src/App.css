@@ -35,7 +35,7 @@ body {
 /* 2. HEADER & BRAND */
 .topbar {
   background: var(--dark);
-  color: var(--bg);
+  color: var(--head-text);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -64,6 +64,7 @@ body {
   top: 0;
   z-index: 10;
   scrollbar-width: thin; /* slimmer scrollbar on small screens */
+  scrollbar-color: var(--accent) transparent;
 }
 
 .nav-tabs button {
@@ -137,11 +138,10 @@ body {
 
 .panel-header h2 {
   margin: 0;
-  /* CHANGE: 'sans-serif' in quotes was treated as a font name and ignored,
-     so it was falling back to Georgia. Now uses your loaded heading font. */
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: var(--text);
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700; 
+  font-size: 1rem;
+  color: #3d2e26;
   letter-spacing: 0.5px;
 }
 
@@ -152,7 +152,6 @@ body {
   overflow-wrap: anywhere; /* CHANGE: long words/links can't push the page wider */
 }
 
-/* CHANGE: links (like "View full-resolution image") match the theme */
 .panel-body a {
   color: var(--accent-strong);
   text-underline-offset: 2px;
@@ -162,71 +161,14 @@ body {
   color: var(--dark);
 }
 
-/* --- DENSE FOOTER --- */
-.site-footer {
-  background: #2c211a; /* Dark brown to match the nav */
-  color: #c9b8a8;
-  border-top: 4px solid #c17c4a;
-  margin-top: 50px;
-  padding: 40px 20px 20px;
-}
-
-.footer-grid {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Forces exactly 2 columns side-by-side */
-  gap: 25px 20px; /* 25px space between rows, 20px between columns */
-  align-items: start; /* Prevents the right column from stretching down */
-}
-
-.footer-col h4 {
-  color: #f5efe6;
-  font-family: 'Inter', sans-serif; /* Changed to normal font */
-  font-weight: 900; /* Made it extra bold */
-  font-size: 1rem; /* Slightly smaller to look cleaner */
-  text-transform: uppercase; /* Makes it look like a real website header */
-  letter-spacing: 1px;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.footer-col p {
-  font-size: 0.8rem;
-  line-height: 1.4; /* Tighter line height */
-  margin-top: 0;
-  margin-bottom: 0; /* Removes the huge gap under the text */
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  color: #c9b8a8;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.footer-col ul li a:hover {
-  color: #c17c4a;
-}
-
-.footer-bottom {
-  max-width: 800px;
-  margin: 30px auto 0;
-  padding-top: 20px;
-  border-top: 1px solid #3d2e26;
+/* 5. FOOTER */
+.footer {
   text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
   font-size: 0.75rem;
-  color: #8a7a6a;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
 }
 
 .apod-img {
@@ -246,4 +188,79 @@ body {
   .nav-tabs button {
     transition: none;
   }
+}
+
+/* ADD THESE to the bottom of App.css (they replace the old inline styles) */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.est {
+  font-size: 0.8rem;
+  color: var(--nav-text);
+}
+
+.apod-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.apod-frame {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+.apod-explain {
+  margin-top: 15px;
+}
+
+.apod-small {
+  font-size: 0.85rem;
+}
+
+.apod-credit {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.error-text {
+  color: #b00020;
+}
+
+body.night .error-text {
+  color: #ff6a5c;
+}
+
+.night-toggle {
+  background: transparent;
+  color: var(--nav-text);
+  border: 1px solid var(--nav-text);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font: 600 0.75rem 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+body.night {
+  --bg: #120405;
+  --text: #ff6a5c;
+  --dark: #1c0709;
+  --darker: #150506;
+  --darkest: #0b0203;
+  --accent: #8c1d14;
+  --accent-strong: #a82a1f;
+  --panel: #1a0608;
+  --panel-head: #240a0c;
+  --line: #3d1214;
+  --muted: #c0544a;
+  --nav-text: #d9695c;
+}
+
+body.night img,
+body.night iframe {
+  filter: brightness(0.55) sepia(1) hue-rotate(-50deg) saturate(4);
 }
