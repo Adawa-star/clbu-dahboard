@@ -79,8 +79,7 @@ body {
   text-transform: uppercase;
   border-right: 1px solid var(--darkest);
   white-space: nowrap;
-  flex-shrink: 0; /* CHANGE: tabs never squash; the bar scrolls instead */
-  /* CHANGE: only animate what changes (cheaper than "all") */
+  flex-shrink: 0;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   display: flex;
   align-items: center;

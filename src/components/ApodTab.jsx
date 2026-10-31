@@ -12,7 +12,6 @@ export default function ApodTab() {
   useEffect(() => {
     if (cache) return;
     const controller = new AbortController();
-    // Put your key in .env as VITE_NASA_KEY=... (keep .env out of git)
     const key = import.meta.env.VITE_NASA_KEY || 'DEMO_KEY';
 
     (async () => {
