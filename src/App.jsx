@@ -8,6 +8,7 @@ import PAstUTab from './components/PAstUTab';
 import WeatherTab from './components/WeatherTab';
 import SkyMapTab from './components/SkyMapTab';
 import Footer from './components/Footer';
+import NoticeTicker from './components/NoticeTicker';
 
 const icon = (children) => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -52,16 +53,26 @@ function App() {
 
   return (
     <div>
+
       <header className="topbar">
-        <h1 className="brand-name">CLBU &amp; PAstU</h1>
-        <div className="topbar-right">
-          <span className="est">Est. 2026</span>
-          <button type="button" className="night-toggle"
-            onClick={toggleNight} aria-pressed={night}>
-            {night ? '🔴 Night: ON' : '🌙 Night: OFF'}
-          </button>
-        </div>
-      </header>
+  {/* LEFT SIDE: The Logo */}
+  <div className="topbar-left">
+    <img src="/logo.png" alt="CLBU & PAstU" className="brand-logo" />
+  </div>
+
+  {/* CENTER: The Redlight Toggle */}
+  <div className="topbar-center">
+    <button type="button" className="night-toggle"
+      onClick={toggleNight} aria-pressed={night}>
+      {night ? 'Redlight: ON': 'Redlight: OFF'}
+    </button>
+  </div>
+
+  {/* RIGHT SIDE: The Est. Date */}
+  <div className="topbar-right">
+    <span className="est">Est. 2026</span>
+  </div>
+</header>
 
       <nav className="nav-tabs" role="tablist" aria-label="Main Navigation">
         {TABS.map((tab, i) => (
@@ -77,6 +88,9 @@ function App() {
           </button>
         ))}
       </nav>
+
+      <NoticeTicker message="NOTICE: We are sorry for the inconvenience caused, you can't read articles yet in PAstU Tab and some other tabs. It is currently work in progress." />
+
 
       <main className="main-container">
         <ActivePanel />

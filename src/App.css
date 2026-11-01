@@ -235,6 +235,7 @@ body.night .error-text {
 }
 
 .night-toggle {
+  white-space: nowrap;
   background: transparent;
   color: var(--nav-text);
   border: 1px solid var(--nav-text);
@@ -262,4 +263,88 @@ body.night {
 body.night img,
 body.night iframe {
   filter: brightness(0.55) sepia(1) hue-rotate(-50deg) saturate(4);
+}
+
+/* --- SCROLLING NOTICE TICKER --- */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: #111; /* Dark background */
+  border-top: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+  /* This gives the "red light" glow effect */
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(255, 0, 0, 0.4);
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  color: #ff3333;
+  font-family: 'Courier New', Courier, monospace; /* Digital display font */
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8); /* Glowing text */
+  /* The animation: 15 seconds, linear speed, infinite loop */
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Pause the animation if the user hovers over it (good for reading) */
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Layout for the left side */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Gives space between the button and the logo */
+}
+
+/* Styling the logo image */
+.brand-logo {
+  height: 35px; /* Adjust this number if the logo is too big or small */
+  width: auto;
+  object-fit: contain;
+}
+
+.topbar-left, 
+.topbar-center, 
+.topbar-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Align contents */
+.topbar-left {
+  justify-content: flex-start; /* Logo on the left */
+}
+
+.topbar-center {
+  justify-content: center; /* Button in the middle */
+}
+
+.topbar-right {
+  justify-content: flex-end; /* Est. date on the right */
+}
+
+/* Logo sizing */
+.brand-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
