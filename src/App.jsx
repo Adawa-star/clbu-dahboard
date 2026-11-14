@@ -39,13 +39,13 @@ function App() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session && session.user.email === 'your-admin-email@gmail.com') {
+      if (session && session.user.email === 'prag09310@gmail.com') {
         setIsModerator(true);
       }
     });
 
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session && session.user.email === 'your-admin-email@gmail.com') {
+      if (session && session.user.email === 'prag09310@gmail.com') {
         setIsModerator(true);
       } else {
         setIsModerator(false);

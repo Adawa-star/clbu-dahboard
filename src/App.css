@@ -460,3 +460,256 @@ body.night iframe {
   background-color: #a56438;
   transform: translateY(-4px);
 }
+
+/* --- CLOUDYNIGHTS FORUM STYLE --- */
+
+/* The Editor Container */
+.forum-editor-container {
+  background: #eef2f5; /* Pale forum background */
+  border: 1px solid #b0c4de;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.forum-editor-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #dce6f0;
+  padding: 10px 15px;
+  border-bottom: 1px solid #b0c4de;
+}
+
+.forum-editor-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+}
+
+.editor-avatar {
+  background: #6c5ce7;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.forum-title-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-bottom: 1px solid #b0c4de;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.quill-wrapper {
+  background: white;
+  /* Overrides Quill's default border to blend in */
+}
+
+.quill-wrapper .ql-toolbar {
+  border: none;
+  border-bottom: 1px solid #b0c4de;
+  background: #f8f9fa;
+}
+
+.quill-wrapper .ql-container {
+  border: none;
+  min-height: 150px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.forum-editor-footer {
+  padding: 10px 15px;
+  background: #eef2f5;
+  border-top: 1px solid #b0c4de;
+  text-align: right;
+}
+
+.forum-submit-btn {
+  background: #218838; /* CloudyNights green */
+  color: white;
+  border: 1px solid #1e7e34;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* The Displayed Posts */
+.forum-thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- RESPONSIVE FORUM LAYOUT --- */
+
+/* By default (Mobile): Stack vertically */
+.forum-post {
+  display: flex;
+  flex-direction: column; /* Stacks top to bottom */
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* The Author Info Row (Mobile View) */
+.forum-post-sidebar {
+  width: 100%;
+  background: #f2f4f7;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row; /* Horizontal layout for mobile */
+  align-items: center;
+  gap: 12px;
+  border-right: none;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.forum-avatar {
+  width: 35px; /* Smaller avatar for mobile */
+  height: 35px;
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #64748b;
+  margin-bottom: 0; /* Remove the bottom margin from the old code */
+}
+
+/* Text next to avatar */
+.forum-post-sidebar strong {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.forum-rank {
+  font-size: 0.7rem;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.forum-post-count {
+  display: none; /* Hide post count on mobile to save space */
+}
+
+/* The Post Content */
+.forum-post-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.forum-post-header {
+  display: flex;
+  flex-direction: column; /* Stack title and date on mobile */
+  gap: 5px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.forum-post-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #c17c4a;
+  font-family: 'Inter', sans-serif;
+}
+
+.forum-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.forum-post-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+  flex: 1;
+}
+
+.forum-post-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forum-delete-btn {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* --- DESKTOP VIEW (Screens larger than 600px) --- */
+@media (min-width: 600px) {
+  .forum-post {
+    flex-direction: row; /* Side-by-side on desktop */
+  }
+
+  .forum-post-sidebar {
+    width: 130px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid #d1d1d1;
+    border-bottom: none;
+    padding: 15px;
+  }
+
+  .forum-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .forum-post-count {
+    display: block;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-top: 5px;
+  }
+
+  .forum-post-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* --- PAstU TAB MAIN LAYOUT --- */
+.forum-page-container {
+  width: 100%;
+}
+
+.forum-page-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  color: #3d2e26;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c17c4a;
+}
